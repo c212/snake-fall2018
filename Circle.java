@@ -1,30 +1,26 @@
-// Circle.java 
+import java.awt.Graphics;
+import java.awt.Color;
 
-import java.awt.*; 
-
-class Circle {
-  int x, y; // center
-  int radius;
-  Color color; 
-  Circle(int x, int y, int radius, Color color) {
-    this.x = x; 
-    this.y = y;
-    this.radius = radius;
-    this.color = color;
+public class Circle {
+  private int x, y, radius; 
+  Color in, border; 
+  public int x() { return this.x; } 
+  public int y() { return this.y; } 
+  public Circle(int x, int y, int r, Color in, Color border) {
+    this.x = x;
+    this.y = y; 
+    this.radius = r;
+    this.in = in;
+    this.border = border;
   }
-  void draw(Graphics g) {
-//    g.setColor(Color.WHITE); 
-//    g.fillOval(this.x - this.radius,
-//               this.y - this.radius,
-//               this.radius * 2,
-//               this.radius * 2); 
-    g.setColor(this.color); 
-    g.drawOval(this.x - this.radius,
-               this.y - this.radius,
-               this.radius * 2,
-               this.radius * 2); 
+  public void draw(Graphics g) {
+    g.setColor(this.in); 
+    g.fillOval(this.x - this.radius, this.y - this.radius, 2 * this.radius, 2 * this.radius);  
+    g.setColor(this.border); 
+    g.drawOval(this.x - this.radius, this.y - this.radius, 2 * this.radius, 2 * this.radius);  
   }
-  void enlarge() {
-    this.radius += 1; 
+  public void moveTo(int x, int y) {
+    this.x = x;
+    this.y = y; 
   }
 }

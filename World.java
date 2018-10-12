@@ -1,10 +1,8 @@
-import java.awt.*; 
-import java.awt.event.*; 
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 
-interface World  {
-  public void draw(Graphics g);
-  public void update(); 
-  public boolean hasEnded();
-  public void keyPressed(KeyEvent e); 
-  public void mousePressed(MouseEvent e); 
+interface World {
+  public void dibuja(Graphics g); // drawing
+  public void actualice(); // time event handler 
+  public void keh(KeyEvent e); // key event handler
 }
