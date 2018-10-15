@@ -5,10 +5,14 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 
 public class Game implements World {
+  
+  Food food; 
+  
   Snake snake;
   int times;  
   public Game() {
     this.snake = new Snake(50, 80, "east");  
+    this.food = new Food(); 
   }
   public void dibuja(Graphics g) { 
     Font font = new Font("SansSerif", Font.BOLD, 20);
@@ -19,6 +23,8 @@ public class Game implements World {
     g.drawString("(" + this.snake.x() + ", " + this.snake.y() + ")" , 140, 180); 
 
     this.snake.draw(g);
+    
+    this.food.show(g); 
     
   }
   public void actualice() { 
